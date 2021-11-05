@@ -29,3 +29,15 @@ function DanhSachNV() {
         }
     }
 }
+
+DanhSachNV.prototype.timLoaiNhanVien = function(loaiNV) {
+    var mangTimKiem = [];
+    var tuKhoa = loaiNV.trim().toLowerCase();
+    this.dsNhanVien.map(function(nv) {
+        var loai = nv.loaiNhanVien.toLowerCase();
+        if (loai.indexOf(tuKhoa) > -1) {
+            mangTimKiem.push(nv);
+        }
+    });
+    return mangTimKiem;
+}

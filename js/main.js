@@ -57,6 +57,15 @@ getLocalStorage();
 function resetForm() {
     document.querySelector(".modal-body form").reset();
     getELE("tknv").disabled = false;
+    getELE("tbTKNV").style.display = "none";
+    getELE("tbTen").style.display = "none";
+    getELE("tbEmail").style.display = "none";
+    getELE("tbMatKhau").style.display = "none";
+    getELE("tbNgay").style.display = "none";
+    getELE("tbLuongCB").style.display = "none";
+    getELE("tbChucVu").style.display = "none";
+    getELE("tbGiolam").style.display = "none";
+    
 }
 
 function hienThiDS(dsNhanVien) {
@@ -122,4 +131,16 @@ function capNhatNVCu() {
         setLocalStorage(dsnv.dsNhanVien);
         getLocalStorage();
     }
+}
+
+getELE("btnTimNV").onclick = function() {
+    var tuKhoa = getELE("searchName").value;
+    var mangTuKhoa = dsnv.timLoaiNhanVien(tuKhoa);
+    hienThiDS(mangTuKhoa);
+}
+
+getELE("searchName").onkeyup = function() {
+    var tuKhoa = getELE("searchName").value;
+    var mangTuKhoa = dsnv.timLoaiNhanVien(tuKhoa);
+    hienThiDS(mangTuKhoa);
 }
